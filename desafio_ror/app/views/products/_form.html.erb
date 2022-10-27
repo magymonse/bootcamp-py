@@ -1,0 +1,20 @@
+
+<%= simple_form_for(@product) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="row g-3">
+    <%= f.input :id %>
+    <%= f.input :title %>
+    <%= f.input :price %>
+    <%= f.input :image %>
+    <%= f.input :description %>
+
+
+    <div class="col-md-12">
+      <%= f.button :submit, class: "btn-primary" %>
+      <%= link_to "Cancel", root_path,
+      :class => "btn btn-outline-secondary" %>
+    </div>
+  </div>
+<% end %>
