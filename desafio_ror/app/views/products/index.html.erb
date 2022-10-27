@@ -1,0 +1,45 @@
+<div id="carouselProducts" class="carousel carousel-dark slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+    <%
+        grouped_products = {}
+        group = 1
+        counter = 1
+        @products.each do |product|
+          if grouped_products[group]
+            grouped_products[group] << product
+          else
+            grouped_products[group] = [product]
+          end
+          counter += 1
+          if counter == 4
+            group += 1
+            counter = 1
+          end
+        end
+     %>
+
+    <% grouped_products.each do |group, products| %>
+      <div class="carousel-item <%= " active " if group==1 %>" data-bs-interval="10000">
+        <div class="row">
+          <% products.each do |product| %>
+            <%= render product %>
+          <% end %>
+        </div>
+          <div class="row">
+          <%= link_to "<i class='fa-solid fa-plus'></i>".html_safe, new_product_path,
+          :class => "btn btn-outline-success d-none d-md-inline-block",
+          :title => "Crear Producto",'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselProducts" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselProducts" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
