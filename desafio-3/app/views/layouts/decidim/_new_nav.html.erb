@@ -1,0 +1,11 @@
+<!-- Navbar -->
+
+<nav class="main-nav" aria-label="Menú principal">
+        <ul>
+            <% main_menu.each do |menu| %>
+            <li class="main-nav__link main-nav__link<%= "--active" if menu.id==1 %>">
+                <a href="<%= menu.url %>"><%= menu.label%></a>
+            </li>
+            <% end %>
+        </ul>
+</nav>

@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= link_to 'Back', navbars_path %>
+      <%= link_to 'Edit', edit_navbar_path(@navbar), class: "button tiny button--title" %> |
+    </h2>
+  </div>
+  <div class="card-section">
+    <p>
+      <strong>Label:</strong>
+      <%= @navbar.label %>
+    </p>
+
+    <p>
+      <strong>Url:</strong>
+      <%= @navbar.url %>
+    </p>
+  </div>
+
+  
+</div>

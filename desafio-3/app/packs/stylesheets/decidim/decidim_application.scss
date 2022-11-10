@@ -1,0 +1,40 @@
+// This is a file that can be overridden by the application in order to override styles
+// Notice that this file is included at the very end of the stylesheets packs to have
+// more priority
+//
+// To override CSS variables or Foundation settings use _decidim-settings.scss
+//
+// By default this is empty.
+$newcolor: #194c47;
+$linkcolor: #1a181d;
+$acolor: white;
+$hovercolor: rgba(white, .02);
+
+.navbar{
+    background-color: $newcolor;
+}
+.main-nav__link a{
+    position: relative;
+    display: block;
+    padding: 1em 2em;
+    color: $linkcolor;
+
+    &:hover{
+        background: $hovercolor;
+        color: $acolor;
+        text-decoration: underline;
+    }
+    
+    &:focus{
+        z-index: 1;
+        color: $acolor;
+        text-decoration: underline;
+        outline-offset: -2px;
+    }
+}  
+.main-nav__link--active a{
+    box-shadow: inset 0 0 0 4px var($linkcolor);
+    color: $acolor;
+    background: $hovercolor;
+
+}
