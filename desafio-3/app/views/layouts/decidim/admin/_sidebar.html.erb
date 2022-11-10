@@ -1,0 +1,12 @@
+<div class="main-nav">
+  <ul>
+    <li <% if @activesection == "navbars" %>
+     class="is-active"
+    <% end %>>
+      <%= link_to "Navbars", navbars_path %>
+    </li>
+  </ul>
+  <%= main_menu.render %>
+  <%= yield :secondary_nav if content_for? :secondary_nav %>
+  <%= yield :sidebar_menu_nav if content_for? :sidebar_menu_nav %>
+</div>
